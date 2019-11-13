@@ -1,0 +1,20 @@
+﻿@using FA.JustBlog.Core.Models
+
+@helper categoryLink(Category category)
+{
+    <div>
+        <label>Category: </label>
+        <a href="#"><u>@category.Name</u></a>
+    </div>
+}
+
+@helper tagLink(List<Tag> listTag)
+{
+    <div>
+        <label>Tag: </label>
+        @foreach (Tag item in listTag)
+        {
+            <a href="#" style="background-color: black;color: white;padding: 8px 7px 9px 7px;"><u>@item.Name</u></a>
+        }
+    </div>
+}

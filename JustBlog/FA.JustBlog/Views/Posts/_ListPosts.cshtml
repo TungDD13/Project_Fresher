@@ -1,0 +1,20 @@
+﻿@model IEnumerable<FA.JustBlog.Core.Models.Post>
+@using FA.JustBlog.Core.Models;
+
+<div class="w3-card" style="margin-bottom: 20px">
+    <div class="w3-white ">
+        <h3 class="w3-padding">@ViewBag.PartialName</h3>
+        <hr />
+        <ul class="w3-ul w3-hoverable w3-white">
+            @foreach (Post item in Model)
+            {
+                <li class="w3-padding-16" style="text-overflow: ellipsis; list-style-position: inside; overflow: hidden; white-space: nowrap; ">
+                    <span style="padding-bottom: 20px">@item.Title</span><br>
+                    <span class="w3-opacity" style="white-space: nowrap">Posted @item.PostedOn.ToLongDateString()</span><br />
+                    <span class="w3-opacity">Viewed @item.ViewCount time(s) with rate @item.Rate</span>
+                </li>
+            }
+        </ul>
+
+    </div>
+</div>

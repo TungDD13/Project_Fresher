@@ -1,0 +1,44 @@
+﻿@model IEnumerable<FA.JustBlog.Core.Models.Tag>
+@using FA.JustBlog.Core.Models
+
+@functions {
+    private string GetFontSize(int count)
+    {
+        int minSize = 14;
+        int maxSize = 24;
+        int minCount = 10000;
+        int maxCount = 0;
+
+        foreach (var item in Model)
+        {
+            if (item.Count < minCount)
+            {
+                minCount = item.Count;
+            }
+
+            if (item.Count > maxCount)
+            {
+                maxCount = item.Count;
+            }
+        }
+
+        var rate = (count + 1 - minCount) / (maxCount - minCount);
+        var fontSize = minSize + rate*(maxSize - minSize);
+        return fontSize.ToString();
+    }
+
+}
+
+<div class="w3-card">
+    <div class="w3-container w3-padding">
+        <h3>Popular Tags</h3>
+    </div>
+    @foreach (Tag item in Model)
+    {
+        <div class="w3-container w3-white w3-padding">
+            <span class="w3-tag w3-margin-bottom" style="font-size: @(GetFontSize(item.Count) + "px")">@item.Name</span>
+            @*<span class="w3-tag w3-margin-bottom" style="font-size: 14px">@item.Description</span>*@
+        </div>
+    }
+    
+</div> 

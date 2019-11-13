@@ -1,0 +1,64 @@
+﻿@model IEnumerable<FA.JustBlog.Core.Models.Post>
+
+<!-- Page Header -->
+@section header{
+    <header class="masthead" style="background-image: url('/fonts/img/home-bg.jpg')">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="site-heading">
+                        <h1>Clean Blog</h1>
+                        <span class="subheading">A Blog Theme by Start Bootstrap</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+}
+
+@if (ViewBag.postName != null)
+{
+    <h1>All post in @ViewBag.postName</h1>
+    <hr />
+}
+else if (ViewBag.tagName != null)
+{
+    <h1>All post in @ViewBag.tagName</h1>
+    <hr />
+}
+
+
+@foreach (var item in Model)
+{
+    <div class="post-preview">
+        @*<a href="@Url.Action("Sample","Posts",new { id= item.Id },null)">
+
+                <h2 class="post-title">
+                    @Html.DisplayFor(modelItem => item.Title)
+                </h2>
+                <h3 class="post-subtitle">
+                    @Html.DisplayFor(modelItem => item.ShortDescription)
+                </h3>
+            </a>*@
+        <a href="@Url.Action("Detail","Posts" , new {@year = item.PostedOn.Year, month
+                = item.PostedOn.Month.ToString("00"), urlSluq = item.UrlSlug}, null)">
+            <h2 class="post-title">
+                @Html.DisplayFor(modelItem => item.Title)
+            </h2>
+            <h3 class="post-subtitle">
+                @Html.DisplayFor(modelItem => item.ShortDescription)
+            </h3>
+
+        </a>
+        <p class="">
+            Posted by
+            <a href="#">Start Bootstrap</a>
+            on September 24, 2019
+        </p>
+    </div>
+    <hr>
+}
+<div class="clearfix">
+    <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
+</div>

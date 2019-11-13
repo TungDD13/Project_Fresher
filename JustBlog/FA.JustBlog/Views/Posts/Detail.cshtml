@@ -1,0 +1,113 @@
+﻿@model FA.JustBlog.Core.Models.Post
+@using FA.JustBlog.App_Code
+<!-- Page Header -->
+@section header{
+    <header class="masthead" style="background-image: url('/fonts/img/home-bg.jpg')">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="site-heading">
+                        <h1>Clean Blog</h1>
+                        <span class="subheading">A Blog Theme by Start Bootstrap</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+}
+
+
+
+<div class="post-preview">
+    <div>
+        <h2><a href="/Post/2019/10/data%20annotation%20inverse%20property%20attribule%20in%20ef%206">@Model.Title</a></h2>
+    </div>
+    <div class="post-meta">
+        Posted <label>@Html.DisplayDateTimeValue(Model.PostedOn)</label> with rate 4.5 by 100 view(s)
+    </div>
+    @HelperLink.categoryLink(Model.Category)
+    @HelperLink.tagLink(Model.Tags.ToList())
+    <div class="post-subtitle">
+        @Model.PostContent
+    </div>
+
+</div>
+<hr />
+
+<!-- /.box-body -->
+<div class="box-footer box-comments" id="comment_content">
+    @foreach (Comment item in Model.Comments)
+    {
+        <div class="box-comment">
+            <!-- User image -->
+            <img class="img-circle img-sm" src="~/Content/dist/img/user3-128x128.jpg" alt="User Image">
+
+            <div class="comment-text">
+                <span class="username">
+                    @item.Name
+                    <span class="text-muted pull-right">@item.CommentTime.ToLongTimeString();</span>
+                </span><!-- /.username -->
+                @item.CommentText
+            </div>
+            <!-- /.comment-text -->
+        </div>
+    }
+</div>
+
+<div class="box-footer" >
+    @*<form action="#" method="post">*@
+        <div class="input-group">
+            <input type="text" name="message" id="commentText" placeholder="Type Message ..." class="form-control">
+            <span class="input-group-btn">
+                <button type="submit" id="addComment" class="btn btn-primary btn-flat">Send</button>
+            </span>
+        </div>
+    @*</form>*@
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        $("#addComment").click(function (e) {
+            var data = {
+                Name: "Tung",
+                PostId: @Model.Id,
+                CommentText : $("#commentText").val(),
+                CommentHeader : $("#commentText").val(),
+                //CommentHeader : "aaa",
+            
+            }
+            
+
+
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("addConment", "Posts")",
+                data: data,
+                dataType: "json",
+                success: function (response) {
+
+                    debugger
+                    if (response.isSuccess) {
+                        $("#comment_content").append(
+
+                            "<div class='box-comment'>"
+                                +"<img class='img-circle img-sm' src='/Content/dist/img/user3-128x128.jpg' alt='User Image'>"
+                                +"<div class='comment-text'>"
+                                    +"<span class='username'>"
+                                        +data.Name
+                                        +"<span class='text-muted pull-right'>@DateTime.Now.ToLongTimeString()</span>"
+                                    +"</span>"
+                                    +data.CommentText
+                                +"</div>"
+                            +"</div>"
+
+                            );
+                    }
+                }
+            });
+
+        });
+    });
+</script>
