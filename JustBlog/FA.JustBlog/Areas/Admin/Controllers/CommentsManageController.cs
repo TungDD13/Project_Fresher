@@ -11,6 +11,7 @@ using FA.JustBlog.Core.Repositories;
 
 namespace FA.JustBlog.Areas.Admin.Controllers
 {
+    [Authorize]
     public class CommentsManageController : Controller
     {
         private JustBlogContext db = new JustBlogContext();

@@ -13,6 +13,7 @@ using FA.JustBlog.Core.Repositories;
 namespace FA.JustBlog.Areas.Admin.Controllers
 {
     //[Authorize(Roles = "BlogOnwer, Contributor")]
+    [Authorize]
     public class PostsManageController : Controller
     {
         private JustBlogContext db = new JustBlogContext();
