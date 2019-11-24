@@ -1,5 +1,6 @@
 ﻿@model FA.JustBlog.Core.Models.Post
 @using FA.JustBlog.App_Code
+@using CaptchaMvc.HtmlHelpers
 <!-- Page Header -->
 @section header{
     <header class="masthead" style="background-image: url('/fonts/img/home-bg.jpg')">
@@ -55,15 +56,21 @@
     }
 </div>
 
-<div class="box-footer" >
-    @*<form action="#" method="post">*@
-        <div class="input-group">
-            <input type="text" name="message" id="commentText" placeholder="Type Message ..." class="form-control">
-            <span class="input-group-btn">
-                <button type="submit" id="addComment" class="btn btn-primary btn-flat">Send</button>
-            </span>
-        </div>
-    @*</form>*@
+<div class="box-footer">
+    <form action="#" method="post" id = "Captcha">
+    <div class="input-group">
+        @Html.MathCaptcha()
+        @ViewBag.ErrorMessage
+        <input type="text" style="margin: 10px 0px 10px 0px;" name="message" id="commentText" placeholder="Type Message ..." class="form-control">
+        <span>
+            <button type="submit" id="addComment" class="btn btn-primary btn-flat">Send</button>
+        </span>
+    </div>
+    <div>
+        
+    </div>
+
+    </form>
 </div>
 
 
@@ -76,9 +83,9 @@
                 CommentText : $("#commentText").val(),
                 CommentHeader : $("#commentText").val(),
                 //CommentHeader : "aaa",
-            
+
             }
-            
+
 
 
             $.ajax({
