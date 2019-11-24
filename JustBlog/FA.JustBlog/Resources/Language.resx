@@ -117,6 +117,42 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ad1" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="ad2" xml:space="preserve">
+    <value>Roles Admin</value>
+  </data>
+  <data name="ad3" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="ad4" xml:space="preserve">
+    <value>Tags</value>
+  </data>
+  <data name="ad5" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+  <data name="ad6" xml:space="preserve">
+    <value>Posts</value>
+  </data>
+  <data name="Count" xml:space="preserve">
+    <value>Count</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Header" xml:space="preserve">
+    <value>Header</value>
+  </data>
+  <data name="ListTag" xml:space="preserve">
+    <value>List Tag</value>
+  </data>
+  <data name="Modified" xml:space="preserve">
+    <value>Modified</value>
+  </data>
+  <data name="name" xml:space="preserve">
+    <value>Name</value>
+  </data>
   <data name="nav1" xml:space="preserve">
     <value>Home</value>
   </data>
@@ -128,5 +164,44 @@
   </data>
   <data name="nav4" xml:space="preserve">
     <value>ADMIN</value>
+  </data>
+  <data name="p1" xml:space="preserve">
+    <value>List Posts</value>
+  </data>
+  <data name="p2" xml:space="preserve">
+    <value>Add Post</value>
+  </data>
+  <data name="p3" xml:space="preserve">
+    <value>Most viewed posts</value>
+  </data>
+  <data name="p4" xml:space="preserve">
+    <value>Latest posts</value>
+  </data>
+  <data name="p5" xml:space="preserve">
+    <value>Published Posts</value>
+  </data>
+  <data name="p6" xml:space="preserve">
+    <value>Un Published Posts</value>
+  </data>
+  <data name="Postname" xml:space="preserve">
+    <value>Post name</value>
+  </data>
+  <data name="Poston" xml:space="preserve">
+    <value>Post On</value>
+  </data>
+  <data name="ShortDescription" xml:space="preserve">
+    <value>Short Description</value>
+  </data>
+  <data name="Text" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="urlSlug" xml:space="preserve">
+    <value>UrlSlug</value>
   </data>
 </root>

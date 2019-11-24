@@ -49,8 +49,8 @@
                         <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a href="#">VietNamese</a></li>
-                        <li><a href="#">English</a></li>
+                        <li>@Html.ActionLink("English", "ChangeAdmin", "PostsManage", new { language = "en" }, null)</li>
+                        <li>@Html.ActionLink("VietNamese", "ChangeAdmin", "PostsManage", new { language = "vi-vn" }, null)</li>
                     </ul>
                 @*</div>*@
 
@@ -253,30 +253,30 @@
                 <ul class="sidebar-menu" data-widget="tree">
                     <li class="header">HEADER</li>
                     <!-- Optionally, you can add icons to the links -->
-                    <li class="active"><a href="@Url.Action("Index", "UsersAdmin", new { area = "" })"><i class="fa fa-link"></i> <span>User</span></a></li>
-                    <li><a href="@Url.Action("Index", "RolesAdmin", new { area = "" })"><i class="fa fa-link"></i> <span>Roles Admin</span></a></li>
-                    <li><a href="@Url.Action("Index", "CategoriesManage", new { area = "Admin" })"><i class="fa fa-link"></i> <span>Category</span></a></li>
-                    <li><a href="@Url.Action("Index", "TagsManage", new { area = "Admin" })"><i class="fa fa-link"></i> <span>Tags</span></a></li>
-                    <li><a href="@Url.Action("Index", "CommentsManage", new { area = "Admin" })"><i class="fa fa-link"></i> <span>Comments</span></a></li>
+                    <li class="active"><a href="@Url.Action("Index", "UsersAdmin", new { area = "" })"><i class="fa fa-link"></i> <span>@FA.JustBlog.Resources.Language.ad1</span></a></li>
+                    <li><a href="@Url.Action("Index", "RolesAdmin", new { area = "" })"><i class="fa fa-link"></i> <span>@FA.JustBlog.Resources.Language.ad2</span></a></li>
+                    <li><a href="@Url.Action("Index", "CategoriesManage", new { area = "Admin" })"><i class="fa fa-link"></i> <span>@FA.JustBlog.Resources.Language.ad3</span></a></li>
+                    <li><a href="@Url.Action("Index", "TagsManage", new { area = "Admin" })"><i class="fa fa-link"></i> <span>@FA.JustBlog.Resources.Language.ad4</span></a></li>
+                    <li><a href="@Url.Action("Index", "CommentsManage", new { area = "Admin" })"><i class="fa fa-link"></i> <span>@FA.JustBlog.Resources.Language.ad5</span></a></li>
                     @*<li><a href="@Url.Action("LogOff", "Account", new { area = "" })"><i class="fa fa-link"></i> <span>Log Out</span></a></li>*@
                     <li class="treeview">
                         <a href="#">
-                            <i class="fa fa-link"></i> <span>Post</span>
+                            <i class="fa fa-link"></i> <span>@FA.JustBlog.Resources.Language.ad6</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="@Url.Action("Index","PostsManage")">List Post</a></li>
+                            <li><a href="@Url.Action("Index","PostsManage")">@FA.JustBlog.Resources.Language.p1</a></li>
                             @if (@User.IsInRole("BlogOnwer"))
                             {
-                                <li><a href="@Url.Action("Create","PostsManage")">Add Post</a></li>
+                                <li><a href="@Url.Action("Create","PostsManage")">@FA.JustBlog.Resources.Language.p2</a></li>
                             }
                             
-                            <li><a href="@Url.Action("MostViewedPost","PostsManage")">Most viewed posts</a></li>
-                            <li><a href="@Url.Action("LatestPosts","PostsManage")">Latest posts</a></li>
-                            <li><a href="@Url.Action("PublishedPosts","PostsManage")">Published Posts</a></li>
-                            <li><a href="@Url.Action("UnpublishedPosts","PostsManage")">Un published Posts</a></li>
+                            <li><a href="@Url.Action("MostViewedPost","PostsManage")">@FA.JustBlog.Resources.Language.p3</a></li>
+                            <li><a href="@Url.Action("LatestPosts","PostsManage")">@FA.JustBlog.Resources.Language.p4</a></li>
+                            <li><a href="@Url.Action("PublishedPosts","PostsManage")">@FA.JustBlog.Resources.Language.p5</a></li>
+                            <li><a href="@Url.Action("UnpublishedPosts","PostsManage")">@FA.JustBlog.Resources.Language.p6</a></li>
                         </ul>
                     </li>
                 </ul>

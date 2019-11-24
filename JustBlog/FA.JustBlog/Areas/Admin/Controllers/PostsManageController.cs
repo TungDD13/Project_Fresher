@@ -9,6 +9,8 @@ using System.Web.Mvc;
 using FA.JustBlog.Core.Models;
 using IdentitySample.Models;
 using FA.JustBlog.Core.Repositories;
+using System.Threading;
+using System.Globalization;
 
 namespace FA.JustBlog.Areas.Admin.Controllers
 {
@@ -168,6 +170,21 @@ namespace FA.JustBlog.Areas.Admin.Controllers
             Post post = postRepository.FindPost(id);
             postRepository.DeletePost(post);
             return RedirectToAction("Index");
+        }
+
+        public ActionResult ChangeAdmin(string language)
+        {
+            if (language != null)
+            {
+                Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(language);
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo(language);
+            }
+            HttpCookie cookie = new HttpCookie("Language");
+            cookie.Value = language;
+            Response.Cookies.Add(cookie);
+
+            var posts = db.Posts.Include(p => p.Category).ToList();
+            return View("Index", posts);
         }
 
     }

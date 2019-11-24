@@ -2,11 +2,11 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
-        <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+        @*<a class="navbar-brand" href="index.html">Start Bootstrap</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             Menu
             <i class="fas fa-bars"></i>
-        </button>
+        </button>*@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
@@ -16,9 +16,7 @@
                     <a class="nav-link" href="@Url.Action("About","Posts")"><span>@FA.JustBlog.Resources.Language.nav2</span></a>
                 </li>
 
-                @*<li class="nav-item">
-                    <a class="nav-link" href="@Url.Action("Sample","Posts",new { id= 1 },null)">Sample Post</a>
-                </li>*@
+
                 @Html.Action("getCategory", "Category")
 
                 <li class="nav-item">
@@ -31,9 +29,9 @@
             </ul>
         </div>
         <div>
-            <ul>
-                <li style="list-style: none;">@Html.ActionLink("English", "Change", "Posts", new { language = "en"}, null)</li>
-                <li style="list-style: none;">@Html.ActionLink("VietNamese", "Change", "Posts", new { language = "vi-vn" }, null)</li>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item" style="list-style: none;">@Html.ActionLink("English", "Change", "Posts", new { language = "en"}, null)</li>
+                <li class="nav-item" style="list-style: none;">@Html.ActionLink("VietNamese", "Change", "Posts", new { language = "vi-vn" }, null)</li>
             </ul>
         </div>
     </div>
