@@ -10,10 +10,10 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="@Url.Action("Index","Posts")">Home</a>
+                    <a class="nav-link" href="@Url.Action("Index","Posts")"><span>@FA.JustBlog.Resources.Language.nav1</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="@Url.Action("About","Posts")">About</a>
+                    <a class="nav-link" href="@Url.Action("About","Posts")"><span>@FA.JustBlog.Resources.Language.nav2</span></a>
                 </li>
 
                 @*<li class="nav-item">
@@ -22,12 +22,18 @@
                 @Html.Action("getCategory", "Category")
 
                 <li class="nav-item">
-                    <a class="nav-link" href="@Url.Action("Contact","Posts")">Contact</a>
+                    <a class="nav-link" href="@Url.Action("Contact","Posts")"><span>@FA.JustBlog.Resources.Language.nav3</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="@Url.Action("Index", "PostsManage", new { area = "Admin" })">Admin</a>
+                    <a class="nav-link" href="@Url.Action("Index", "PostsManage", new { area = "Admin" })"><span>@FA.JustBlog.Resources.Language.nav4</span></a>
                 </li>
 
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li style="list-style: none;">@Html.ActionLink("English", "Change", "Posts", new { language = "en"}, null)</li>
+                <li style="list-style: none;">@Html.ActionLink("VietNamese", "Change", "Posts", new { language = "vi-vn" }, null)</li>
             </ul>
         </div>
     </div>

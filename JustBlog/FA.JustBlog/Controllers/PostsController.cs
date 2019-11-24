@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Globalization;
 using System.Linq;
 using System.Net;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 using FA.JustBlog.Core.Models;
@@ -108,6 +110,21 @@ namespace FA.JustBlog.Controllers
                 return Json(new { isSuccess = true });
             }
             return Json(new { isSuccess = false });
+        }
+
+        public ActionResult Change(string language)
+        {
+            if (language != null)
+            {
+                Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(language);
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo(language);
+            }
+            HttpCookie cookie = new HttpCookie("Language");
+            cookie.Value = language;
+            Response.Cookies.Add(cookie);
+
+            var posts = db.Posts.Include(p => p.Category).ToList();
+            return View("Index",posts);
         }
     }
 }
