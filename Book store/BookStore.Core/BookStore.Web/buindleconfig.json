@@ -1,0 +1,8 @@
+[
+  {
+    "outputFileName": "wwwroot/js/Layout.min.css",
+    "inputFile": [
+      "wwwroot/Assets/js/jquery-{version}.js"
+    ]
+  }
+]

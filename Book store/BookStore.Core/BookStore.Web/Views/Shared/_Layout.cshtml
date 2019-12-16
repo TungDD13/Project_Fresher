@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - BookStore.Web</title>
+    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/css/site.css" />*@
+
+    <link href="~/Assets/css/Site.css" rel="stylesheet" />
+    <link href="~/Assets/css/bootstrap.css" rel="stylesheet" />
+
+    <script src="~/Assets/js/modernizr-2.8.3.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+</head>
+<body>
+    <header>
+
+        <nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img src="~/Assets/images/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top"
+                     alt="">
+                <span class="menu-collapsed">Book Store</span>
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" asp-area="" asp-controller="Categories" asp-action="Index">Categorie</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Books" asp-action="Index">Book</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Comments" asp-action="Index">Comment</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Publishers" asp-action="Index">Publisher</a>
+                    </li>
+
+                    @*@Html.Action("CartPartial", "ShoppingCart")*@
+                </ul>
+                @*@Html.Partial("_LoginPartial")*@
+            </div>
+        </nav>
+    </header>
+
+
+    <div class="row" id="body-row">
+        
+        <partial name="_SideBar.cshtml" />
+        <div class="col py-3">
+            @RenderBody()
+            <footer class="sticky-bottom">
+                <p>&copy; 2018 - Book Store</p>
+            </footer>
+        </div>
+        <hr />
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2019 - BookStore.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    @*<script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>*@
+
+    <script src="~/Assets/js/jquery-3.3.1.js"></script>
+        <script src="~/Assets/js/bootstrap.js"></script>
+        <script src="~/Assets/js/site.js"></script>
+
+    @*<script src="~/js/site.js" asp-append-version="true"></script>*@
+    @RenderSection("Scripts", required: false)
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+﻿@model IEnumerable<FA.BookStore.Core.Models.Book>
+@using FA.BookStore.Core.Models
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+    @*<partial name="~/Shared/_Carousel.cshtml" />*@
+    <partial name="~/Views/Shared/_Carousel.cshtml" />
+
+<div class="row">
+    <div class="col-md-12">
+        <a class="nav-link" asp-area="" asp-controller="Books" asp-action="Details" asp-route-id="1"><strong>TRUYỆN TRANH</strong></a>
+    </div>
+    <br />
+    @foreach (Book book in Model)
+    {
+        @Html.Partial("_DisplayBook", book)
+        @*<partial name="_DisplayBook.cshtml" model="Model"/>*@
+    }
+</div>

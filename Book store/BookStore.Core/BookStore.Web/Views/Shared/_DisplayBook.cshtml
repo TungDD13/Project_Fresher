@@ -1,0 +1,17 @@
+﻿
+@using FA.BookStore.Core.Models
+@model Book
+
+<div class="col-md-3">
+    <img class="img-fluid img-thumbnail" style="width:100%" src="~/Image/image.jpg" />
+    <p style="min-height:65px">
+        @*<a href="/Book/Details/@Model.BookId">@Model.Title</a>*@
+        <a class="nav-link" asp-area="" asp-controller="Books" asp-action="Details" asp-route-id="@Model.BookId">@Model.Title</a>
+    </p>
+    <div class="input-group mb-3">
+        <p class="form-control" >@Model.Price.ToString("C0", CultureInfo.CreateSpecificCulture("vi-VN"))</p>
+        <div class="input-group-append">
+            <a class="btn btn-outline-primary" href="#">Do Doan Tung</a>
+        </div>
+    </div>
+</div>
