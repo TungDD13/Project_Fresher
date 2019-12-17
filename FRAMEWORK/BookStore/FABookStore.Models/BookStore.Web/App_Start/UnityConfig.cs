@@ -3,11 +3,14 @@ using BookStore.BusinessLogicLayer.Services;
 using BookStore.DataAccessLayer;
 using BookStore.DataAccessLayer.Infrastructure;
 using BookStore.DataAccessLayer.Repositories;
+using BookStore.Web.Areas.Identity.Controllers;
+using BookStore.Web.Controllers;
 using FA.BookStore.Core.Models;
 using FABookStore.Models;
 using System;
 
 using Unity;
+using Unity.Injection;
 
 namespace BookStore.Web
 {
@@ -49,6 +52,13 @@ namespace BookStore.Web
 
             // TODO: Register your type's mappings here.
             // container.RegisterType<IProductRepository, ProductRepository>();
+            container.RegisterType<AccountController>(new InjectionConstructor());
+            container.RegisterType<ManageController>(new InjectionConstructor());
+            container.RegisterType<UsersAdminController>(new InjectionConstructor());
+            container.RegisterType<RolesAdminController>(new InjectionConstructor());
+
+            //container.RegisterType<ApplicationUserManager>(new InjectionConstructor());
+            //container.RegisterType<ApplicationRoleManager>(new InjectionConstructor());
 
             container.RegisterSingleton<BookStoreContext, BookStoreContext>();
             container.RegisterSingleton<IDbFactory, DbFactory>();
