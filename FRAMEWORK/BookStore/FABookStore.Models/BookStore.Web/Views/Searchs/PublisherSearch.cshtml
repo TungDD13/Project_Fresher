@@ -1,0 +1,7 @@
+﻿@model IEnumerable<Publisher>
+
+@foreach (var item in Model)
+{
+    <a href="@Url.Action("DetailPublisher", "Home", new { id=item.PublisherId })" class="list-group-item list-group-item-action bg-light">@item.PublisherName</a>
+}
+

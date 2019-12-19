@@ -56,6 +56,7 @@ namespace BookStore.Web
             container.RegisterType<ManageController>(new InjectionConstructor());
             container.RegisterType<UsersAdminController>(new InjectionConstructor());
             container.RegisterType<RolesAdminController>(new InjectionConstructor());
+            container.RegisterType<PublishersController>(new InjectionConstructor());
 
             //container.RegisterType<ApplicationUserManager>(new InjectionConstructor());
             //container.RegisterType<ApplicationRoleManager>(new InjectionConstructor());
@@ -63,6 +64,8 @@ namespace BookStore.Web
             container.RegisterSingleton<BookStoreContext, BookStoreContext>();
             container.RegisterSingleton<IDbFactory, DbFactory>();
             container.RegisterSingleton<IUnitOfWork, UnitOfWork>();
+
+            //container.RegisterType<ICheckoutService, CheckoutService>();
 
             container.RegisterType<IGenericRepository<Book>, GenericRepository<Book>>();
             container.RegisterType<IBookService, BookService>();
@@ -79,6 +82,11 @@ namespace BookStore.Web
             container.RegisterType<IGenericRepository<Publisher>, GenericRepository<Publisher>>();
             container.RegisterType<IPublisherService, PublisherService>();
 
+            //container.RegisterType<IGenericRepository<Order>, GenericRepository<Order>>();
+            //container.RegisterType<IOrderService, OrderService>();
+
+            //container.RegisterType<IGenericRepository<OrderDetail>, GenericRepository<OrderDetail>>();
+            //container.RegisterType<IOrderDetailService, OrderDetailService>();
         }
     }
 }

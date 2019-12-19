@@ -7,10 +7,10 @@ namespace FA.BookStore.Core.Models
     public class Publisher
     {
         [Key]
-        public int PubId { get; set; }
+        public int PublisherId { get; set; }
         [Required(ErrorMessage = "Category name is required.")]
         [StringLength(255)]
-        public string PubName { get; set; }
+        public string PublisherName { get; set; }
 
         [StringLength(1024)]
         public string Description { get; set; }

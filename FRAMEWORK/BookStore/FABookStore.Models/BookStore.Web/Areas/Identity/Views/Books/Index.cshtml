@@ -1,0 +1,68 @@
+﻿@model IEnumerable<FA.BookStore.Core.Models.Book>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@*<h2>Index</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+
+
+
+<div class="container">
+    <a href="@Url.Action("Create", "Books")" class="btn btn-success">Create</a>
+
+    <table class="table table-condensed table-bordered">
+        <tr class="row" style="border: none;">
+            <th class="col-md-2">
+                @Html.DisplayNameFor(model => model.ImgUrl)
+            </th>
+            <th class="col-md-2">
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th class="col-md-2">
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th class="col-md-2">
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th class="col-md-1">
+                @Html.DisplayNameFor(model => model.IsActive)
+            </th>
+            <th class="col-md-3"></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr class="row">
+                <td class="col-md-2">
+                    <img style="max-width:150px;" src="~/Assets/images/@item.ImgUrl" alt="@item.Title" />
+                </td>
+                <td class="col-md-2">
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td class="col-md-2">
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td class="col-md-2">
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td class="col-md-1">
+                    @Html.DisplayFor(modelItem => item.IsActive)
+                </td>
+                <td class="col-md-3">
+                    @*@Html.ActionLink("Edit", "Edit", new { id = item.BookId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.BookId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.BookId })*@
+                    <a href="@Url.Action("Edit", "Books", new { id=item.BookId })" class="btn btn-primary">Edit</a>
+                    <a href="@Url.Action("Details", "Books", new { id=item.BookId })" class="btn btn-info">Details</a>
+                    <a href="@Url.Action("Delete", "Books", new { id=item.BookId })" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

@@ -1,0 +1,7 @@
+﻿@using FABookStore.Models
+@model IEnumerable<Author>
+
+@foreach (var item in Model)
+{
+    <a href="@Url.Action("Detailauthor", "Home", new { id=item.AuthorId })" class="list-group-item list-group-item-action bg-light">@item.AuthorName</a>
+}

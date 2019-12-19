@@ -1,0 +1,8 @@
+﻿@model PaginatedList<Book>
+
+<div class="row">
+    @foreach (var book in Model)
+    {
+        @Html.Partial("_DisplayBook", book)
+    }
+</div>
